@@ -9,7 +9,7 @@ const HowItWorks = () => {
     <section id='how-it-works' className="flex-col items-center justify-center px-10 py-8">
       <div className='text-center mb-8'>
         <h1 className="text-lg leading-8 text-gray-600">How it works</h1>
-        <h2 className="text-4xl font-bold mb-4 text-gray-900">Hassle-free house cleans</h2>
+        <h2 className="text-4xl font-bold mb-4 text-gray-900">Hassle-free house cleaning</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
         <div className='flex-row text-center items-center justify-center text-gray-900'>
