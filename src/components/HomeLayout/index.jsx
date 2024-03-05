@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
+import Footer from '../Footer';
 
 const navigation = [
   { name: 'How it Works', href: '#how-it-works' },
@@ -11,11 +12,12 @@ const navigation = [
   { name: 'Contact', href: '/contact' },
 ]
 
-export default function Example() {
+const HomeLayout = ({children}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="bg-slate-100">
+    <div>
+        <div className="bg-slate-100">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
@@ -47,14 +49,14 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
             <Link href="/auth">
-              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                 Log in
-              </button>
+                </button>
             </Link>
             <Link href="/client">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Get a quote
-              </button>
+                </button>
             </Link>
           </div>
         </nav>
@@ -62,7 +64,7 @@ export default function Example() {
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="." className="-m-1.5 p-1.5">
+              <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Ebenezer Cleaning Services</span>
                 <img
                   className="h-8 w-auto"
@@ -94,14 +96,14 @@ export default function Example() {
                 </div>
                 <div className="py-6">
                   <a
-                    href="/auth"
+                    href="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in
                   </a>
 
                   <a
-                    href="/client"
+                    href="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Get a quote
@@ -126,30 +128,14 @@ export default function Example() {
             }}
           />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Brilliant local cleaners
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-            Vetted cleaners. All managed online.
-            This is housework that works.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="/client"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Find your cleaner
-              </a>
-              <a href="/cleaner" className="text-sm font-semibold leading-6 text-gray-900">
-              Register as a cleaner
-               <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
+        <div className='mt-20'>
+            {children}
         </div>
       </div>
     </div>
+    <Footer />
+    </div>
   )
 }
+
+export default HomeLayout;

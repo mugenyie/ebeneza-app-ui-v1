@@ -1,4 +1,4 @@
-import { Montserrat, Roboto, Helve } from 'next/font/google';
+import { Montserrat, Roboto } from 'next/font/google';
 import "./globals.css";
 import "./fonts.css";
 
@@ -10,7 +10,7 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "Try Toronto's Best House Cleaners | Ebenezer Cleaning Services",
+  title: "Try Toronto's Best House Cleaners | Ebenezer Cleaning Services - Toronto",
   description: "Find a house cleaner near you now. Book a one-off, weekly or fortnightly home clean. Toronto's best domestic cleaning service.",
 };
 
