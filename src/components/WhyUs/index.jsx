@@ -23,7 +23,7 @@ const WhyUs = () => {
       
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
         <img 
-        class="rounded" 
+        className="rounded" 
         src="https://fcdrycleaners.com/wp-content/uploads/2023/09/How-Much-Vinegar-Should-You-Use-In-Your-Washing-Machine-A-Complete-Guide-998x570.jpg" 
         alt="Your Image" />
         <div className='shadow-md px-8 py-4'>

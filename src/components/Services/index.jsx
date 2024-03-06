@@ -30,7 +30,7 @@ const Services = () => {
       <div className='text-center mb-8'>
         <h1 className="text-lg leading-8 text-gray-600">What you get with Ebenezer Cleaning Services</h1>
         <h2 className="text-4xl font-bold mb-4 text-gray-900">We go above and beyond</h2>
-        <p className='mt-6 text-lg leading-8 text-gray-600'>We’ve set a new standard for thorough and thoughtful service. You don’t just get <br />a quality clean - you get a Housekeep quality clean. Here’s what’s included:</p>
+        <p className='mt-6 text-lg leading-8 text-gray-600'>We've set a new standard for thorough and thoughtful service. You don't just get <br />a quality clean - you get the house kept quality clean. Here's what's included:</p>
       </div>
       <div className="grid md:grid-cols-4 grid-cols-1 gap-4 justify-items-center items-center">
         {services.map((service, index) => (

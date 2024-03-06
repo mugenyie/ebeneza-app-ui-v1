@@ -46,7 +46,7 @@ export default function Example() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
-            <Link href="/auth">
+            <Link href="/api/auth/login">
               <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                 Log in
               </button>
@@ -94,7 +94,7 @@ export default function Example() {
                 </div>
                 <div className="py-6">
                   <a
-                    href="/auth"
+                    href="/api/auth/login"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in
