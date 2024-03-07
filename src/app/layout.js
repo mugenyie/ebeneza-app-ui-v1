@@ -2,6 +2,7 @@ import { Montserrat, Roboto } from 'next/font/google';
 import "./globals.css";
 import "./fonts.css";
 import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { Analytics } from "@vercel/analytics/react"
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 const roboto = Roboto({
@@ -28,7 +29,10 @@ export default function RootLayout({ children }) {
       </head>
       {/* <body className={roboto.className}>{children}</body> */}
       <UserProvider>
-        <body>{children}</body>
+        <body>
+          {children}
+          <Analytics />
+        </body>
       </UserProvider>
     </html>
   );
