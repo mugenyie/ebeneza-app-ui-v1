@@ -13,7 +13,7 @@ export default function ProfileClient() {
       <>
         {user ? (
             <div class="flex justify-center items-center">
-                <Link href="/profile" className="flex justify-center items-center px-4 py-3 bg-blue-100 rounded-r-full rounded-l-full" role="alert">
+                <Link href="/profile" className="shadow-sm flex justify-center items-center px-4 py-3 bg-blue-100 rounded-r-full rounded-l-full" role="alert">
                     <div>
                         <img className='w-16 rounded-full' src={user.picture} alt={user.name} />
                     </div>
@@ -22,12 +22,12 @@ export default function ProfileClient() {
                         <p className="text-sm">{user.email}</p>
                     </div>
                 </Link>
-                {/* <Link
+                <Link
                     href="/api/auth/logout"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Logout ?
-                </Link> */}
+                </Link>
             </div>
           ) : (
           <>
