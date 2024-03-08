@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
-import Banner from '../Banner';
 import ProfileClient from '../Profile/ProfileClient';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const navigation = [
   { name: 'How it Works', href: '#how-it-works' },
@@ -14,6 +14,7 @@ const navigation = [
 ]
 
 export default function Header() {
+  const { user, error, isLoading } = useUser();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -110,6 +111,9 @@ export default function Header() {
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
+            {user && (<div className='flex-row mb-4 font-sans text-lg border-b border-gray-200'>
+              <p>Welcome <span className='font-semibold'> {user.name}!</span></p>
+            </div>)}
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Brilliant local cleaners
             </h1>
