@@ -5,7 +5,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
 import ProfileClient from '../Profile/ProfileClient';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { FaArrowRight } from "react-icons/fa6";
 
 const navigation = [
   { name: 'How it Works', href: '#how-it-works' },
