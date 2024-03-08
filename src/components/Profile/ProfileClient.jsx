@@ -13,7 +13,7 @@ export default function ProfileClient() {
       <>
         {user ? (
             <div class="flex justify-center items-center">
-                <Link href="/profile" className="shadow-sm flex justify-center items-center px-4 py-3 bg-blue-100 rounded-r-full rounded-l-full" role="alert">
+                <Link href="/dashboard" className="shadow-sm flex justify-center items-center px-4 py-3 bg-blue-100 rounded-r-full rounded-l-full" role="alert">
                     <div>
                         <img className='w-16 rounded-full' src={user.picture} alt={user.name} />
                     </div>

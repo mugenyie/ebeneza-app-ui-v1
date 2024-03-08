@@ -1,31 +1,29 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useUser } from '@auth0/nextjs-auth0/client';
+import Link from 'next/link';
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
+
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
+  { name: 'Dashboard', href: '/dashboard', current: true },
+  // { name: 'Team', href: '#', current: false },
+  // { name: 'Projects', href: '#', current: false },
+  // { name: 'Calendar', href: '#', current: false },
+  // { name: 'Reports', href: '#', current: false },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
+  // { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Sign out', href: '/api/auth/logout' },
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Dashboard() {
+export default function DashboardLayout({children, title}) {
+  const { user, error, isLoading } = useUser();
   return (
     <>
       <div className="min-h-full">
@@ -35,13 +33,13 @@ export default function Dashboard() {
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
-                    <div className="flex-shrink-0">
+                    <Link href="." className="flex-shrink-0">
                       <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company"
+                        className="h-14"
+                        src="/logo/white horizontal_2.svg"
+                        alt="Ebenezer Cleaning Services"
                       />
-                    </div>
+                    </Link>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
@@ -79,7 +77,7 @@ export default function Dashboard() {
                           <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Open user menu</span>
-                            <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                            <img className="h-8 w-8 rounded-full" src={user?.picture} alt="" />
                           </Menu.Button>
                         </div>
                         <Transition
@@ -147,11 +145,11 @@ export default function Dashboard() {
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
-                      <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                      <img className="h-10 w-10 rounded-full" src={user?.picture} alt="" />
                     </div>
                     <div className="ml-3">
-                      <div className="text-base font-medium leading-none text-white">{user.name}</div>
-                      <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
+                      <div className="text-base font-medium leading-none text-white">{user?.name}</div>
+                      <div className="text-sm font-medium leading-none text-gray-400">{user?.email}</div>
                     </div>
                     <button
                       type="button"
@@ -182,11 +180,13 @@ export default function Dashboard() {
 
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">{title}</h1>
           </div>
         </header>
         <main>
-          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{/* Your content */}</div>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 px-8">
+            {children}
+          </div>
         </main>
       </div>
     </>
