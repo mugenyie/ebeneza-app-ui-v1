@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
 import ProfileClient from '../Profile/ProfileClient';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { FaArrowRight } from "react-icons/fa6";
 
 const navigation = [
   { name: 'How it Works', href: '#how-it-works' },
@@ -111,9 +112,14 @@ export default function Header() {
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
-            {user && (<div className='flex-row mb-4 font-sans text-lg border-b border-gray-200'>
+            {user && (
+            <div className='flex-row mb-4 font-sans text-lg border-b border-gray-200'>
               <p>Welcome <span className='font-semibold'> {user.name}!</span></p>
-            </div>)}
+              <Link href="/dashboard" className='text-sm font-semibold leading-6 bg-slate-200 px-4 rounded-md'> Visit your dashboard →</Link>
+              <span className='text-gray-200 text-sm'> | </span>
+              <Link href="/api/auth/logout" className="text-sm font-semibold leading-6 bg-slate-200 px-4 rounded-md">Logout ?</Link>
+            </div>
+            )}
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Brilliant local cleaners
             </h1>
