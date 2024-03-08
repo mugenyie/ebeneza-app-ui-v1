@@ -3,7 +3,7 @@ import Head from 'next/head';
 import "../app/globals.css";
 import "../app/fonts.css";
 import Footer from '@/components/Footer';
-import CleanerApplication from '../components/ApplicationForms/CleanersForm';
+import CleanerApplication from '../components/Forms/CleanerApplicationForm';
 
 const Contact = () => {
   return (

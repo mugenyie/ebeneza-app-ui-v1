@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
-import ProfileClient from '../Profile/ProfileClient';
 import Banner from '../Banner';
+import ProfileClient from '../Profile/ProfileClient';
 
 const navigation = [
   { name: 'How it Works', href: '#how-it-works' },
@@ -119,12 +119,12 @@ export default function Header() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                href="/client"
+                href="dashboard/cleaning-request"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Find your cleaner
               </a>
-              <a href="/cleaner" className="text-sm font-semibold leading-6 text-gray-900">
+              <a href="dashboard/apply-as-cleaner" className="text-sm font-semibold leading-6 text-gray-900">
               Register as a cleaner
                <span aria-hidden="true">→</span>
               </a>

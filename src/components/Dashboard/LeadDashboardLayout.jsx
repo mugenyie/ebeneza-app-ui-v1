@@ -3,10 +3,10 @@
 import Head from 'next/head';
 import "../../app/globals.css";
 import "../../app/fonts.css";
-import Footer from '@/components/Footer';
-import CleanerApplication from '../ApplicationForms/CleanersForm';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { getSession } from '@auth0/nextjs-auth0';
+import { useRouter } from 'next/router';
 import DashboardLayout from '@/components/Dashboard/DashboardLayout';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const LeadDashboardLayout = ({children, title}) => {
   return (

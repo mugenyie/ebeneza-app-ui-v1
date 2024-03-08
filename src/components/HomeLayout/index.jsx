@@ -4,8 +4,8 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
 import Footer from '../Footer';
-import ProfileClient from '../Profile/ProfileClient';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
+import ProfileClient from '../Profile/ProfileClient';
 
 const navigation = [
   { name: 'How it Works', href: '#how-it-works' },
@@ -110,7 +110,7 @@ const HomeLayout = ({children}) => {
               }}
             />
           </div>
-          <div className='mt-20'>
+          <div className='min-h-screen flex items-center justify-center'>
               {children}
           </div>
         </div>
