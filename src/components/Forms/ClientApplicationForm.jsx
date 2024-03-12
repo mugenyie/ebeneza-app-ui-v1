@@ -1,10 +1,77 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { useState, useEffect } from 'react';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function ClientApplicationForm() {
+  const { user, error, isLoading } = useUser();
+
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        fullName: user.name ?? '',
+        email: user.email ?? ''
+      });
+    }
+  }, [user]);
+
+  const [formData, setFormData] = useState({
+    fullName: user?.name??'',
+    email: user?.email??'',
+    telephone:'',
+    address:'',
+    metaData:'',
+    street:'',
+    city:'',
+    region:'',
+    postalcode:''
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    console.log(JSON.stringify(formData));
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch('http://ebenever-api-env.eba-ctpi6tu3.us-east-1.elasticbeanstalk.com/v1/apply/client', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+      } else {
+        setErrorMessage('Error submitting form');
+      }
+    } catch (error) {
+      setErrorMessage('Error submitting form', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="space-y-12">
-        <div className="border-b border-gray-900/10 pb-12">
+      {loading && <div className='font-semibold text-lg'>Submitting...</div>}
+      {success && <div className='font-semibold text-lg'>Form submitted successfully!</div>}
+{!loading && !success &&
+  <div>
+  <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
 
@@ -16,7 +83,9 @@ export default function ClientApplicationForm() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="full-name"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
                   id="full-name"
                   autoComplete="name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -32,6 +101,8 @@ export default function ClientApplicationForm() {
                 <input
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   type="email"
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -46,7 +117,8 @@ export default function ClientApplicationForm() {
               <div className="mt-2">
                 <input
                   id="tel"
-                  name="tel"
+                  name="telephone"
+                  value={formData.telephone}
                   type="tel"
                   autoComplete="tel"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -77,7 +149,9 @@ export default function ClientApplicationForm() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="street-address"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
                   id="street-address"
                   autoComplete="street-address"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -191,6 +265,8 @@ export default function ClientApplicationForm() {
             </fieldset>
           </div>
         </div>
+</div>
+}
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
