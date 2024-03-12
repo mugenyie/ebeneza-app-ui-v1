@@ -57,7 +57,7 @@ export default function CleanerApplicationForm() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://ebenever-api-env.eba-ctpi6tu3.us-east-1.elasticbeanstalk.com/v1/apply/cleaner', {
+      const response = await fetch('https://api-v1.ebenezercleaningservices.ca/v1/apply/cleaner', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
