@@ -13,11 +13,11 @@ export default function ProfileClient() {
       <>
         {user ? (
             <div class="flex items-center justify-center">
-                <Link href="/dashboard" className="shadow-sm flex items-center justify-center gap-2 px-2 py-1 bg-blue-100 rounded-r-full rounded-l-full" role="alert">
+                <Link href="/dashboard" className="shadow-sm flex items-center justify-center gap-2 px-0.5 py-0.5 bg-blue-100 rounded-l-full" role="alert">
                     <div>
-                        <img className='w-14 rounded-full' src={user.picture} alt={user.name} />
+                        <img className='w-8 rounded-full' src={user.picture} alt={user.name} />
                     </div>
-                    <div className='text-left px-2 py-2'>
+                    <div className='text-left px-0.5'>
                         <p className="font-semibold">{user.name}</p>
                         <p className="text-sm">{user.email}</p>
                     </div>

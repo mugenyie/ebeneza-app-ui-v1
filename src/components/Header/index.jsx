@@ -52,7 +52,7 @@ export default function Header() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="tel:+16476497903" className='flex items-center justify-center gap-2 font-normal text-gray-900 font-serif italic pr-8'><BsFillTelephoneFill size={16} /> <span className=''>+1 (647) 649-7903</span></a>
+            <a href="tel:+16476497903" className='flex items-center justify-center gap-2 font-normal text-gray-900 font-serif italic pr-4'><BsFillTelephoneFill size={16} /> <span className=''>+1 (647) 649-7903</span></a>
             <ProfileClient />
           </div>
         </nav>
