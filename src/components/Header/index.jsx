@@ -5,11 +5,13 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
 import ProfileClient from '../Profile/ProfileClient';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { IoIosCall } from "react-icons/io";
+import { BsFillTelephoneFill } from "react-icons/bs";
 
 const navigation = [
   { name: 'How it Works', href: '#how-it-works' },
   { name: 'Why Us', href: '#why-us' },
-  { name: 'Services', href: '#services' },
+  { name: 'Services', href: '#services' }
   // { name: 'Contact', href: '/contact' },
 ]
 
@@ -49,7 +51,8 @@ export default function Header() {
               </a>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-12">
+            <a href="tel:+16476497903" className='flex items-center justify-center gap-2 text-lg font-normal text-gray-900 font-serif italic'><BsFillTelephoneFill size={24} /> <span className='px-2'>+1 (647) 649-7903</span></a>
             <ProfileClient />
           </div>
         </nav>
@@ -87,8 +90,9 @@ export default function Header() {
                     </a>
                   ))}
                 </div>
-                <div className="py-6">
-                <ProfileClient />
+                <div className="py-8 flex-col">
+                  <a href="tel:+16476497903" className='mb-8 flex gap-2 text-lg font-normal text-gray-900 font-serif italic'><BsFillTelephoneFill size={24} /> <span className='px-2'>+1 (647) 649-7903</span></a>
+                  <ProfileClient />
                 </div>
               </div>
             </div>
