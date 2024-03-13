@@ -10,7 +10,7 @@ const navigation = [
   { name: 'How it Works', href: '#how-it-works' },
   { name: 'Why Us', href: '#why-us' },
   { name: 'Services', href: '#services' },
-  { name: 'Contact', href: '/contact' },
+  // { name: 'Contact', href: '/contact' },
 ]
 
 export default function Header() {
