@@ -51,8 +51,8 @@ export default function Header() {
               </a>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end space-x-12">
-            <a href="tel:+16476497903" className='flex items-center justify-center gap-2 text-lg font-normal text-gray-900 font-serif italic'><BsFillTelephoneFill size={24} /> <span className='px-2'>+1 (647) 649-7903</span></a>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="tel:+16476497903" className='flex items-center justify-center gap-2 font-normal text-gray-900 font-serif italic pr-8'><BsFillTelephoneFill size={16} /> <span className=''>+1 (647) 649-7903</span></a>
             <ProfileClient />
           </div>
         </nav>
@@ -91,7 +91,7 @@ export default function Header() {
                   ))}
                 </div>
                 <div className="py-8 flex-col">
-                  <a href="tel:+16476497903" className='mb-8 flex gap-2 text-lg font-normal text-gray-900 font-serif italic'><BsFillTelephoneFill size={24} /> <span className='px-2'>+1 (647) 649-7903</span></a>
+                  <a href="tel:+16476497903" className='mb-8 flex items-center justify-center gap-2 font-normal text-gray-900 font-serif italic'><BsFillTelephoneFill size={16} /> <span className='px-2'>+1 (647) 649-7903</span></a>
                   <ProfileClient />
                 </div>
               </div>
