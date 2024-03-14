@@ -1,4 +1,5 @@
 // HowItWorks.js
+import Link from 'next/link';
 import React from 'react';
 import { ImHappy } from "react-icons/im";
 import { MdManageHistory } from "react-icons/md";
@@ -44,12 +45,12 @@ const HowItWorks = () => {
         </div>
       </div>
       <div className="mt-10 flex items-center justify-center gap-x-6">
-        <a
-          href="/client"
+        <Link
+          href="/dashboard/cleaning-request"
           className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Find your cleaner
-        </a>
+        </Link>
       </div>
     </section>
   );
